@@ -113,3 +113,20 @@ install_homebrew_cask
 brew_update
 
 
+# install packages
+step("Install Packages")
+brew_install('bash-completion')
+brew_install('git')
+brew_install('wget')
+brew_install('vim')
+brew_install('ctags')
+brew_install('node')
+brew_install('keybase')
+brew_install('redis')
+
+brew_cask_install('iterm2', 'iTerm')
+
+step("COMPTEDED !!")
+
+
+
