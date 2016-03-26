@@ -105,6 +105,21 @@ def app_installed?(app_name)
 end
 
 
+def oh_my_zsh
+  step('Installing oh-my-zsh')
+  if `zsh --version`.empty?
+    puts "zsh is not installed"
+    return
+  end
+
+  # checks if oh-my-zsh is already installed
+  shell = `echo $SHELL`
+  return if shell = "/bin/zsh"
+  
+  run('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
+end
+
+
 # get stated
 start
 configure_git
@@ -126,7 +141,10 @@ brew_install('redis')
 
 brew_cask_install('iterm2', 'iTerm')
 
-step("COMPTEDED !!")
+# bash_profile and themes and zsh
+oh_my_zsh
+
+step("COMPLETED !!")
 
 
 
