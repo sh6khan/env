@@ -114,7 +114,7 @@ def oh_my_zsh
 
   # checks if oh-my-zsh is already installed
   shell = `echo $SHELL`
-  return if shell = "/bin/zsh"
+  return if shell == "/bin/zsh"
   
   run('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
 end
