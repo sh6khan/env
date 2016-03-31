@@ -45,7 +45,7 @@ end
 
 def installing_vundle
   System.step("Installing Vundle")
-  System.git_clone("https://github.com/VundleVim/Vundle.vim.git"," ~/.vim/bundle/Vundle.vim", "Vundle")
+  System.git_clone("https://github.com/VundleVim/Vundle.vim.git","~/.vim/bundle/Vundle.vim", "Vundle")
 
 end
 
@@ -59,6 +59,7 @@ installing_pathogen
 installing_vundle
 
 # instsall plugins
+
 
 
 

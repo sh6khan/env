@@ -19,6 +19,8 @@ module System
     name ||= repo
     step("cloning #{name}")
 
+    target = build_proper_target(target)
+
     if Dir.exists?(target)
       #ensure correct git remote
       Dir.chdir(target) do
@@ -31,8 +33,19 @@ module System
       end
     else
       #clone
-      puts "trying to clone "
       run("git clone #{repo} #{target}")
     end
+  end
+
+
+  # fileutils doesnt recoginize shortcuts such as ~
+  # therefore we have to replace that with ENV['HOME']
+
+  def self.build_proper_target(target)
+    if target[0] == "~"
+      target[0] = ENV['HOME']
+    end
+
+    target
   end
 end
