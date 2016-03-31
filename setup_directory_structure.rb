@@ -46,7 +46,7 @@ end
 
 # vundle is an another plugin manager
 # inspired by ruby bundler
-#
+
 def installing_vundle
   run("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim")
 end
