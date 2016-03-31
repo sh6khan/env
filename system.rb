@@ -5,17 +5,17 @@ require 'fileutils'
 module System
   OS_USER = `whoami`.strip
 
-  def step(step)
-    puts "======> #{step}"
+  def self.step(step)
+    puts "====> #{step}"
   end
 
-  def run(cmd)
+  def self.run(cmd)
     unless system(cmd)
       abort("Command `#{cmd}` failed with status #{$?.exitstatus}")
     end
   end
 
-  def git_clone(repo, target, name = nil)
+  def self.git_clone(repo, target, name = nil)
     name ||= repo
     step("cloning #{name}")
 
@@ -31,6 +31,7 @@ module System
       end
     else
       #clone
+      puts "trying to clone "
       run("git clone #{repo} #{target}")
     end
   end
