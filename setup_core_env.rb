@@ -88,9 +88,9 @@ end
 
 
 # If you run brew cask info <cask-name>
-# Undercontents you should see an application file (ending in .app)
+# Under contents you should see an application file (ending in .app)
 # This is the name that you want to compare against to ensure if 
-# brew cask has already been installed
+# this brew cask has already been installed
 #
 # Example
 #   Package      : iTerm2
@@ -99,10 +99,9 @@ end
 
 def brew_cask_install(package, osx_app_name = nil)
   return if osx_app_name && app_installed?(osx_app_name)
+  return if !`brew cask info #{package}`.include?('Not installed')
 
-  if `brew cask info #{package}`.include?('Not installed')
-    run("brew cask install #{package}")
-  end
+  run("brew cask install #{package}")
 end
 
 def app_installed?(app_name)

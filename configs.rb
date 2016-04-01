@@ -35,6 +35,11 @@ def import_vimrc
 end
 
 
+def gemrc_no_doc
+  FileUtils.cp(File.join(__dir__, 'gemrc'), File.join(ENV['HOME'], '.gemrc'))
+end
+
+
 # plugin installer for vim
 def installing_pathogen
   System.step("Installing pathogen")
@@ -55,6 +60,7 @@ end
 # import config files
 import_aliases
 import_vimrc
+gemrc_no_doc
 
 # instal pathogenfor plugins
 installing_pathogen

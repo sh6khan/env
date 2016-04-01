@@ -1,12 +1,13 @@
 # all system commands such as git clone
 
 require 'fileutils'
+require 'colorize'
 
 module System
   OS_USER = `whoami`.strip
 
   def self.step(step)
-    puts "====> #{step}"
+    puts "==> ".blue + step
   end
 
   def self.run(cmd)
