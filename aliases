@@ -1,9 +1,5 @@
 # personal aliases
 alias ls='ls -GFhl'
 
-# school related crap
-alias 3a='cd ~/Documents/3A'
-alias compilers='cd ~/Documents/3A/ECE351/ece351-labs'
-
 # config
 alias bashconfig='vim ~./zshrc'
