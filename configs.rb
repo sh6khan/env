@@ -1,3 +1,5 @@
+#!/usr/env/ruby
+
 # this script is used to create the directory structure for my personal setup
 # The idea would be that this repo would be cloned into the home directory of the user
 #

@@ -51,7 +51,9 @@ end
 def install_homebrew_cask
   System.step('Install Homebrew Cask')
   unless system('brew tap | grep "caskroom/cask" > /dev/null')
-    System.run('brew install caskroom/cask/brew-cask')
+    System.run('ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"')
+    System.run("brew tap phinze/homebrew-cask")
+    System.run("brew install brew-cask")
   end
 end
 
@@ -85,8 +87,22 @@ def package_installed?(package)
 end
 
 
+# If you run brew cask info <cask-name>
+# Undercontents you should see an application file (ending in .app)
+# This is the name that you want to compare against to ensure if 
+# brew cask has already been installed
+#
+# Example
+#   Package      : iTerm2
+#   OSX App Name : iTerm 
+
+
 def brew_cask_install(package, osx_app_name = nil)
   return if osx_app_name && app_installed?(osx_app_name)
+
+  if `brew cask info #{package}`.include?('Not installed')
+    run("brew cask install #{package}")
+  end
 end
 
 def app_installed?(app_name)
