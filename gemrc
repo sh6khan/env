@@ -1,1 +1,6 @@
+# This gemrc config will be appended to the .gemrc file in your home directory
+
+
+# doesnt download the docs with each gem as they just take up space and slow
+# you down
 gem: --no-ri --no-rdoc

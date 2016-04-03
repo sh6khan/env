@@ -1,5 +1,14 @@
 # personal aliases
 alias ls='ls -GFhl'
 
+# movement
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
 # config
 alias bashconfig='vim ~./zshrc'
+
+# lock screen when away from keyboard
+alias afk='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
