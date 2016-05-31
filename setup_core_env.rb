@@ -15,6 +15,13 @@ def start
   puts "STARING DEVELOPMENT"
 end
 
+def raise_pronto_errors
+  #should get all pissed an shit
+  #
+
+  useless = 1
+end
+
 def configure_git
   System.step('Configure Git')
   System.run('git config --global color.ui true')
